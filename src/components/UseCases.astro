@@ -1,0 +1,52 @@
+---
+import { Code, Rocket, CheckSquare } from "@lucide/astro";
+
+const useCases = [
+  {
+    icon: Code,
+    title: "Developers",
+    description: "Ship faster with an AI that knows your codebase, your patterns, and your preferences."
+  },
+  {
+    icon: Rocket,
+    title: "Founders",
+    description: "A cofounder who remembers every decision, every pivot, every lesson learned."
+  },
+  {
+    icon: CheckSquare,
+    title: "Personal",
+    description: "Tasks, habits, goals—one system that grows with you and keeps you on track."
+  }
+];
+---
+
+<section class="border-t border-[var(--border)] py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-6">
+    <!-- Header -->
+    <div class="text-center">
+      <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+        Use Cases
+      </p>
+      <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+        Built for builders
+      </h2>
+    </div>
+    
+    <!-- Cards -->
+    <div class="mt-16 grid gap-6 md:grid-cols-3">
+      {useCases.map(({ icon: Icon, title, description }) => (
+        <div class="group rounded-lg border border-[var(--border)] bg-[var(--surface)]/50 p-8 text-center transition-all hover:border-[var(--border-strong)] hover:bg-[var(--surface)]">
+          <div class="mx-auto mb-6 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-4">
+            <Icon class="h-6 w-6 text-[var(--text-muted)]" />
+          </div>
+          <h3 class="text-xl font-medium text-[var(--text-primary)]">
+            {title}
+          </h3>
+          <p class="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
+            {description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+import { Sparkles, MessageSquare, FileText } from "@lucide/astro";
+---
+
+<section class="relative py-20 md:py-28 bg-[#0c0c0c]">
+  <!-- Subtle different background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[#0c0c0c] to-[var(--background)]"></div>
+  
+  <div class="relative mx-auto max-w-6xl px-6">
+    <div class="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
+      <!-- Text -->
+      <div>
+        <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+          Getting Started
+        </p>
+        <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+          5 minutes to personalized AI
+        </h2>
+        <p class="mt-4 text-[var(--text-muted)] leading-relaxed">
+          Run <code class="text-[var(--text-primary)] bg-[var(--surface)] px-2 py-0.5 rounded">/onboarding</code> and answer a few questions. 
+          OpenAgent learns who you are, what you're building, and how you work best.
+        </p>
+        <p class="mt-4 text-[var(--text-muted)] leading-relaxed">
+          Everything is modular. Skip what you don't need. Everyone works differently.
+        </p>
+        
+        <div class="mt-8 space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 rounded-md border border-[var(--border)] bg-[var(--surface)] p-2">
+              <MessageSquare class="h-4 w-4 text-[var(--text-muted)]" />
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)]">Interactive questions</p>
+              <p class="text-sm text-[var(--text-muted)]">Work areas, goals, preferences, tech stack</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 rounded-md border border-[var(--border)] bg-[var(--surface)] p-2">
+              <FileText class="h-4 w-4 text-[var(--text-muted)]" />
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)]">Auto-generates your system</p>
+              <p class="text-sm text-[var(--text-muted)]">AGENT.md, tasks, memory. All set up for you</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 rounded-md border border-[var(--border)] bg-[var(--surface)] p-2">
+              <Sparkles class="h-4 w-4 text-[var(--text-muted)]" />
+            </div>
+            <div>
+              <p class="font-medium text-[var(--text-primary)]">Ready to go</p>
+              <p class="text-sm text-[var(--text-muted)]">Start with /agent and full context loaded</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Terminal Preview -->
+      <div class="rounded-lg border border-[var(--border)] bg-[var(--surface)]">
+        <div class="flex items-center gap-2 border-b border-[var(--border)] px-4 py-3">
+          <div class="h-3 w-3 rounded-full bg-[#ff5f57]"></div>
+          <div class="h-3 w-3 rounded-full bg-[#febc2e]"></div>
+          <div class="h-3 w-3 rounded-full bg-[#28c840]"></div>
+          <span class="ml-4 text-xs text-[var(--text-faded)]">onboarding</span>
+        </div>
+        <div class="p-6 text-sm">
+          <div class="space-y-4">
+            <div>
+              <span class="text-[var(--text-faded)]">$</span>
+              <span class="text-[var(--text-primary)] ml-2">/onboarding</span>
+            </div>
+            <div class="text-[var(--text-muted)]">
+              <p>Welcome to OpenAgent!</p>
+              <p class="mt-2">I'll ask you a few questions to personalize your system.</p>
+              <p>This takes about 5-10 minutes. You can skip any question.</p>
+            </div>
+            <div class="mt-4 rounded border border-[var(--border)] bg-[var(--background)] p-3">
+              <p class="text-[var(--text-primary)]">What's your name?</p>
+              <div class="mt-2 flex gap-2">
+                <span class="rounded border border-[var(--border)] px-2 py-1 text-xs text-[var(--text-muted)]">Skip</span>
+                <span class="rounded border border-[var(--text-primary)] px-2 py-1 text-xs text-[var(--text-primary)]">Type your answer...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

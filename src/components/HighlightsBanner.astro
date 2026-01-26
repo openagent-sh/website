@@ -1,0 +1,43 @@
+---
+// Highlights Banner - darker, solid background, better mobile alignment
+---
+
+<section class="relative py-8 bg-[#0a0a0a]">
+  <!-- Solid overlay to block grid -->
+  <div class="absolute inset-0 bg-[#0a0a0a]"></div>
+  
+  <div class="relative mx-auto max-w-6xl px-6">
+    <!-- Desktop: horizontal, Mobile: 2x2 grid centered -->
+    <div class="hidden sm:flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[var(--text-muted)]">
+      <span>Open Source</span>
+      <span class="text-[var(--text-faded)]">·</span>
+      <a 
+        href="https://opencode.ai" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="hover:text-[var(--text-primary)] transition-colors"
+      >
+        Built on OpenCode
+      </a>
+      <span class="text-[var(--text-faded)]">·</span>
+      <span>Fast Onboarding</span>
+      <span class="text-[var(--text-faded)]">·</span>
+      <span>Modular Configuration</span>
+    </div>
+    
+    <!-- Mobile: 2x2 grid without dots -->
+    <div class="sm:hidden grid grid-cols-2 gap-4 text-sm text-[var(--text-muted)] text-center">
+      <span>Open Source</span>
+      <a 
+        href="https://opencode.ai" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="hover:text-[var(--text-primary)] transition-colors"
+      >
+        Built on OpenCode
+      </a>
+      <span>Fast Onboarding</span>
+      <span>Modular Config</span>
+    </div>
+  </div>
+</section>

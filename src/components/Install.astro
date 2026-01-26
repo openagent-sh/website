@@ -1,0 +1,119 @@
+---
+import { Copy } from "@lucide/astro";
+
+const curlCommand = `curl -fsSL https://open-agent.sh/install | bash`;
+const gitCommands = `git clone https://github.com/openagent-sh/openagent
+cd openagent
+./setup.sh`;
+---
+
+<section id="install" class="border-t border-[var(--border)] py-20 md:py-28">
+  <div class="mx-auto max-w-3xl px-6">
+    <div class="text-center">
+      <h2 class="text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+        Get Started
+      </h2>
+      <p class="mt-4 text-[var(--text-muted)]">
+        Install OpenAgent and run the onboarding. You'll be up and running in minutes.
+      </p>
+    </div>
+    
+    <!-- Install Tabs -->
+    <div class="mt-10">
+      <div class="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)]">
+        <!-- Tab Headers -->
+        <div class="flex border-b border-[var(--border)]">
+          <button 
+            id="tab-curl" 
+            class="install-tab active px-6 py-3 text-sm font-medium text-[var(--text-primary)] border-b-2 border-[var(--text-primary)]"
+            data-tab="curl"
+          >
+            curl
+          </button>
+          <button 
+            id="tab-git" 
+            class="install-tab px-6 py-3 text-sm font-medium text-[var(--text-muted)] border-b-2 border-transparent hover:text-[var(--text-primary)]"
+            data-tab="git"
+          >
+            git
+          </button>
+        </div>
+        
+        <!-- Tab Content: curl -->
+        <div id="content-curl" class="install-content p-6">
+          <div class="flex items-center justify-between">
+            <pre class="text-sm text-[var(--text-primary)] overflow-x-auto"><code>{curlCommand}</code></pre>
+            <button 
+              class="copy-button ml-4 flex-shrink-0 rounded p-2 text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text-primary)] transition-all"
+              data-command={curlCommand}
+              title="Copy to clipboard"
+            >
+              <Copy class="h-4 w-4" />
+            </button>
+          </div>
+          <p class="mt-4 text-xs text-[var(--text-faded)]">
+            Coming soon — for now use the git method
+          </p>
+        </div>
+        
+        <!-- Tab Content: git -->
+        <div id="content-git" class="install-content hidden p-6">
+          <div class="flex items-start justify-between">
+            <pre class="text-sm text-[var(--text-primary)] overflow-x-auto"><code>{gitCommands}</code></pre>
+            <button 
+              class="copy-button ml-4 flex-shrink-0 rounded p-2 text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text-primary)] transition-all"
+              data-command={gitCommands}
+              title="Copy to clipboard"
+            >
+              <Copy class="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.install-tab');
+  const contents = document.querySelectorAll('.install-content');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetTab = tab.getAttribute('data-tab');
+      
+      // Update tab styles
+      tabs.forEach(t => {
+        t.classList.remove('active', 'text-[var(--text-primary)]', 'border-[var(--text-primary)]');
+        t.classList.add('text-[var(--text-muted)]', 'border-transparent');
+      });
+      tab.classList.add('active', 'text-[var(--text-primary)]', 'border-[var(--text-primary)]');
+      tab.classList.remove('text-[var(--text-muted)]', 'border-transparent');
+      
+      // Show/hide content
+      contents.forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.getElementById(`content-${targetTab}`)?.classList.remove('hidden');
+    });
+  });
+  
+  // Copy buttons
+  const copyButtons = document.querySelectorAll('.copy-button');
+  copyButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const command = button.getAttribute('data-command');
+      if (command) {
+        await navigator.clipboard.writeText(command);
+        const icon = button.querySelector('svg');
+        if (icon) {
+          icon.style.color = 'var(--text-primary)';
+          setTimeout(() => {
+            icon.style.color = '';
+          }, 1000);
+        }
+      }
+    });
+  });
+</script>

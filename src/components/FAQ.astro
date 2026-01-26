@@ -1,0 +1,88 @@
+---
+import { Plus } from "@lucide/astro";
+
+const faqs = [
+  {
+    question: "What is OpenAgent?",
+    answer: "OpenAgent is a personal AI operating system built on OpenCode. It's a configuration layer that adds persistent memory, specialized agents, and deep personalization to your AI workflow."
+  },
+  {
+    question: "How is this different from ChatGPT?",
+    answer: "ChatGPT forgets you after each conversation. OpenAgent remembers your projects, preferences, and context over time. It's local-first, open source, and designed to grow with you."
+  },
+  {
+    question: "Do I need OpenCode?",
+    answer: "Yes. OpenAgent is built on top of OpenCode. Install OpenCode first, then add OpenAgent as your personalization layer."
+  },
+  {
+    question: "Where is my data stored?",
+    answer: "Everything stays local on your machine. Your memory, tasks, and configuration are just markdown files in your project. Nothing leaves your computer."
+  },
+  {
+    question: "Is it free?",
+    answer: "Yes. OpenAgent is completely free and open source. Use it, modify it, contribute to it."
+  },
+  {
+    question: "How do I contribute?",
+    answer: "Check out our GitHub repository and the contributing guide. We welcome all contributions: code, docs, ideas."
+  }
+];
+---
+
+<section class="relative py-20 md:py-28 bg-[#0c0c0c]">
+  <!-- Same background as Onboarding section -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[#0c0c0c] to-[var(--background)]"></div>
+  
+  <div class="relative mx-auto max-w-3xl px-6">
+    <!-- Header -->
+    <h2 class="text-2xl font-semibold text-[var(--text-primary)]">
+      FAQ
+    </h2>
+    
+    <!-- Questions -->
+    <div class="mt-10 space-y-2">
+      {faqs.map(({ question, answer }, index) => (
+        <div class="faq-item">
+          <button 
+            class="faq-trigger flex w-full items-center gap-4 py-4 text-left"
+            aria-expanded="false"
+            data-index={index}
+          >
+            <span class="faq-icon flex-shrink-0 text-[var(--text-muted)]">
+              <Plus class="h-4 w-4" />
+            </span>
+            <span class="text-[var(--text-primary)] font-medium">{question}</span>
+          </button>
+          <div class="faq-content hidden pl-8 pb-4">
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed">{answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-trigger');
+    const content = item.querySelector('.faq-content');
+    const icon = item.querySelector('.faq-icon');
+    
+    trigger?.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      
+      // Toggle current item
+      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      content?.classList.toggle('hidden', isOpen);
+      
+      // Swap icon - Plus when closed, Minus when open
+      if (icon) {
+        icon.innerHTML = isOpen 
+          ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>'
+          : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>';
+      }
+    });
+  });
+</script>

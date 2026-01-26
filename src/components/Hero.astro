@@ -1,0 +1,223 @@
+---
+import { ArrowRight, Star } from "@lucide/astro";
+---
+
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-28">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="flex flex-col items-center text-center">
+      <div class="mb-8">
+        <span class="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5 text-xs font-medium text-[var(--text-muted)]">
+          v1: OpenCode Extension
+        </span>
+      </div>
+      
+      <h1 class="text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+        <span class="text-[var(--text-faded)]">Your </span>
+        <span class="text-[var(--text-primary)]">cofounder</span>
+        <span class="text-[var(--text-faded)]"> for </span>
+        <span class="text-[var(--text-primary)]">life</span>
+      </h1>
+      
+      <p class="mt-6 max-w-2xl text-base text-[var(--text-muted)] md:text-lg">
+        A personal AI operating system that remembers, adapts, and grows with you.
+      </p>
+      
+      <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-4">
+        <a 
+          href="#install"
+          class="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--text-primary)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:opacity-90 transition-opacity"
+        >
+          <span>Get Started</span>
+          <ArrowRight class="h-4 w-4" />
+        </a>
+        <a 
+          href="https://github.com/openagent-sh/openagent"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 rounded-md border border-[var(--border)] bg-transparent px-6 py-3 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--surface)] hover:border-[var(--border-strong)] transition-all"
+        >
+          <Star class="h-4 w-4" />
+          <span>Star on GitHub</span>
+          <span id="github-stars" class="text-[var(--text-faded)]">---</span>
+        </a>
+      </div>
+      
+      <div class="mt-16 w-full max-w-4xl">
+        <div class="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)]">
+          <div class="border-b border-[var(--border)]">
+            <div class="flex items-center gap-2 px-4 py-3">
+              <div class="h-3 w-3 rounded-full bg-[#ff5f57]"></div>
+              <div class="h-3 w-3 rounded-full bg-[#febc2e]"></div>
+              <div class="h-3 w-3 rounded-full bg-[#28c840]"></div>
+              <span class="ml-4 text-xs text-[var(--text-faded)]">openagent</span>
+            </div>
+            <div class="flex border-t border-[var(--border)]">
+              <button 
+                class="terminal-tab flex-1 px-4 py-2 text-xs font-medium text-[var(--text-muted)] border-r border-[var(--border)] hover:bg-[var(--background)] transition-colors data-[active=true]:bg-[var(--background)] data-[active=true]:text-[var(--text-primary)]"
+                data-tab="overview"
+                data-active="true"
+              >
+                Overview
+              </button>
+              <button 
+                class="terminal-tab flex-1 px-4 py-2 text-xs font-medium text-[var(--text-muted)] border-r border-[var(--border)] hover:bg-[var(--background)] transition-colors data-[active=true]:bg-[var(--background)] data-[active=true]:text-[var(--text-primary)]"
+                data-tab="why"
+              >
+                Why?
+              </button>
+              <button 
+                class="terminal-tab flex-1 px-4 py-2 text-xs font-medium text-[var(--text-muted)] border-r border-[var(--border)] hover:bg-[var(--background)] transition-colors data-[active=true]:bg-[var(--background)] data-[active=true]:text-[var(--text-primary)]"
+                data-tab="how"
+              >
+                How?
+              </button>
+              <button 
+                class="terminal-tab flex-1 px-4 py-2 text-xs font-medium text-[var(--text-muted)] border-r border-[var(--border)] hover:bg-[var(--background)] transition-colors data-[active=true]:bg-[var(--background)] data-[active=true]:text-[var(--text-primary)]"
+                data-tab="agents"
+              >
+                Agents
+              </button>
+              <button 
+                class="terminal-tab flex-1 px-4 py-2 text-xs font-medium text-[var(--text-muted)] hover:bg-[var(--background)] transition-colors data-[active=true]:bg-[var(--background)] data-[active=true]:text-[var(--text-primary)]"
+                data-tab="onboarding"
+              >
+                Onboarding
+              </button>
+            </div>
+          </div>
+          
+          <div class="p-6 text-left text-sm">
+            <div class="terminal-content" data-content="overview">
+              <div class="space-y-3">
+                <div class="text-[var(--text-muted)]">
+                  <p class="text-[var(--text-primary)] font-medium">OpenAgent v1.0</p>
+                  <p class="mt-2">Your personal AI operating system.</p>
+                  <p>Lives on your machine, remembers everything,</p>
+                  <p>grows with you over time.</p>
+                  <div class="mt-4 grid grid-cols-2 gap-4 max-w-md">
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs">Knows who you are</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs">Remembers context</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs">Tracks your goals</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-xs">Spawns agents</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="terminal-content hidden" data-content="why">
+              <div class="space-y-3">
+                <div class="text-[var(--text-muted)]">
+                  <p class="text-[var(--text-primary)] font-medium">The Problem</p>
+                  <p class="mt-2">Every AI conversation starts from zero.</p>
+                  <p>Your context, preferences, history—gone.</p>
+                  <p class="mt-3">You constantly re-explain yourself to</p>
+                  <p>tools that should already know you.</p>
+                  <p class="mt-3 border-l-2 border-[var(--border)] pl-3 italic">
+                    "AI forgets you the moment you close the tab."
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="terminal-content hidden" data-content="how">
+              <div class="space-y-3">
+                <div class="text-[var(--text-muted)]">
+                  <p class="text-[var(--text-primary)] font-medium">How It Works</p>
+                  <p class="mt-2">1. <span class="text-[var(--text-primary)]">Onboarding</span> - 5 minutes to understand who you are</p>
+                  <p class="mt-1">2. <span class="text-[var(--text-primary)]">Memory</span> - Short-term + long-term context</p>
+                  <p class="mt-1">3. <span class="text-[var(--text-primary)]">Modular</span> - Configure agents, tasks, habits</p>
+                  <p class="mt-1">4. <span class="text-[var(--text-primary)]">Self-improving</span> - Learns your style over time</p>
+                  <p class="mt-3 text-[var(--text-faded)]">Everything stays local. Your data never leaves.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="terminal-content hidden" data-content="agents">
+              <div class="space-y-3">
+                <div class="text-[var(--text-muted)]">
+                  <p class="text-[var(--text-primary)] font-medium">Available Agents</p>
+                  <p class="mt-2">Spawn specialized agents for any task:</p>
+                  <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/research</div>
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/memory</div>
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/opencode</div>
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/product-owner</div>
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/classical</div>
+                    <div class="rounded bg-[var(--background)] px-2 py-1 text-[var(--text-primary)]">/frontend-designer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="terminal-content hidden" data-content="onboarding">
+              <div class="space-y-3">
+                <div class="text-[var(--text-muted)]">
+                  <p class="text-[var(--text-primary)] font-medium">/onboarding</p>
+                  <p class="mt-2">I'll ask you a few questions:</p>
+                  <ul class="mt-2 list-disc list-inside pl-4 space-y-1 text-xs">
+                    <li>What's your name?</li>
+                    <li>What are your work areas?</li>
+                    <li>What are you currently working on?</li>
+                    <li>What do you want to achieve?</li>
+                    <li>Which agents do you need?</li>
+                  </ul>
+                  <p class="mt-3 text-[var(--text-faded)]">Everything is skippable. ~5 minutes.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center pt-4">
+              <span class="text-[var(--text-faded)]">$</span>
+              <span class="ml-2 h-4 w-2 bg-[var(--text-primary)] animate-pulse"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('.terminal-tab');
+  const contents = document.querySelectorAll('.terminal-content');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const targetTab = tab.getAttribute('data-tab');
+      
+      tabs.forEach(t => {
+        t.setAttribute('data-active', 'false');
+      });
+      tab.setAttribute('data-active', 'true');
+      
+      contents.forEach(content => {
+        content.classList.add('hidden');
+        if (content.getAttribute('data-content') === targetTab) {
+          content.classList.remove('hidden');
+        }
+      });
+    });
+  });
+  
+  async function fetchStars() {
+    try {
+      const response = await fetch('https://api.github.com/repos/openagent-sh/openagent');
+      if (response.ok) {
+        const data = await response.json();
+        const starsEl = document.getElementById('github-stars');
+        if (starsEl) {
+          starsEl.textContent = data.stargazers_count?.toLocaleString() || '';
+        }
+      }
+    } catch (e) {}
+  }
+  fetchStars();
+</script>

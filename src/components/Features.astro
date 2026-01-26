@@ -1,0 +1,67 @@
+---
+import { Brain, GitBranch, Terminal, FileText, Puzzle, User } from "@lucide/astro";
+
+const features = [
+  {
+    icon: Brain,
+    title: "Persistent Memory",
+    description: "Your agent remembers what matters: project context, decisions, preferences. Short-term for this week, long-term for life."
+  },
+  {
+    icon: GitBranch,
+    title: "Agents You Actually Use",
+    description: "Code reviewers, frontend designers, memory agents, changelog writers. Specialized agents for your actual workflow."
+  },
+  {
+    icon: Terminal,
+    title: "Built on OpenCode",
+    description: "OpenAgent is a system layer for OpenCode. All the power of the CLI, enhanced with persistent context and personalization."
+  },
+  {
+    icon: FileText,
+    title: "Your System, Your Rules",
+    description: "Configure everything: work areas, goals, habits, agent behavior. The system adapts to how you work."
+  },
+  {
+    icon: Puzzle,
+    title: "Fully Extensible",
+    description: "Add custom commands, plugins, skills. Extend the system to fit your needs."
+  },
+  {
+    icon: User,
+    title: "Deeply Personalized",
+    description: "Smart onboarding learns who you are in minutes. Then keeps learning: your style, your priorities, your workflow."
+  }
+];
+---
+
+<section id="features" class="py-20 md:py-28">
+  <div class="mx-auto max-w-6xl px-6">
+    <!-- Header -->
+    <div class="text-center">
+      <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+        Features
+      </p>
+      <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+        Everything you need
+      </h2>
+    </div>
+    
+    <!-- Grid -->
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map(({ icon: Icon, title, description }) => (
+        <div class="group rounded-lg border border-[var(--border)] bg-[var(--surface)]/50 p-6 transition-all hover:border-[var(--border-strong)] hover:bg-[var(--surface)]">
+          <div class="mb-4 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-3">
+            <Icon class="h-5 w-5 text-[var(--text-muted)]" />
+          </div>
+          <h3 class="text-lg font-medium text-[var(--text-primary)]">
+            {title}
+          </h3>
+          <p class="mt-2 text-sm text-[var(--text-muted)] leading-relaxed">
+            {description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,17 +1,28 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import HighlightsBanner from "../components/HighlightsBanner.astro";
+import ProblemSolution from "../components/ProblemSolution.astro";
+import Features from "../components/Features.astro";
+import Onboarding from "../components/Onboarding.astro";
+import UseCases from "../components/UseCases.astro";
+import Install from "../components/Install.astro";
+import FAQ from "../components/FAQ.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Nav />
+  <main>
+    <Hero />
+    <HighlightsBanner />
+    <ProblemSolution />
+    <Features />
+    <Onboarding />
+    <UseCases />
+    <Install />
+    <FAQ />
+  </main>
+  <Footer />
+</Layout>

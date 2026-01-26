@@ -1,0 +1,41 @@
+---
+import { Github } from "@lucide/astro";
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-md">
+  <div class="mx-auto max-w-6xl px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="text-lg font-semibold tracking-tight text-[var(--text-primary)] hover:opacity-80 transition-opacity">
+        OpenAgent
+      </a>
+      
+      <!-- Nav Links -->
+      <div class="flex items-center gap-4 sm:gap-8">
+        <a 
+          href="#features" 
+          class="hidden sm:block text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          Features
+        </a>
+        <a 
+          href="https://github.com/openagent-sh/openagent#readme" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:block text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+        >
+          Docs
+        </a>
+        <a 
+          href="https://github.com/openagent-sh/openagent"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-md border border-[var(--border)] bg-transparent px-3 py-1.5 sm:px-4 sm:py-2 text-sm text-[var(--text-primary)] hover:bg-[var(--surface)] hover:border-[var(--border-strong)] transition-all"
+        >
+          <Github class="h-4 w-4" />
+          <span class="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
