@@ -1,74 +1,106 @@
 ---
-import { Copy } from "@lucide/astro";
+import { Copy, Check, ArrowRight } from "@lucide/astro";
 
 const curlCommand = `curl -fsSL https://open-agent.sh/install | bash`;
-const gitCommands = `git clone https://github.com/openagent-sh/openagent
+const gitCommands = `git clone https://github.com/openagent-dev/openagent
 cd openagent
 ./setup.sh`;
 ---
 
-<section id="install" class="border-t border-[var(--border)] py-20 md:py-28">
-  <div class="mx-auto max-w-3xl px-6">
+<section id="install" class="relative py-24 md:py-32">
+  <!-- Background accent -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[var(--accent)]/[0.02] to-[var(--background)]"></div>
+
+  <!-- Top border with circuit decoration -->
+  <div class="absolute top-0 left-0 right-0">
+    <div class="h-px bg-gradient-to-r from-transparent via-[var(--accent)]/50 to-transparent"></div>
+    <div class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[var(--accent)] shadow-[0_0_20px_var(--accent-glow-strong)]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-3xl px-6">
     <div class="text-center">
-      <h2 class="text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
+      <p class="section-label justify-center">
+        Install
+      </p>
+      <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
         Get Started
       </h2>
       <p class="mt-4 text-[var(--text-muted)]">
         Install OpenAgent and run the onboarding. You'll be up and running in minutes.
       </p>
     </div>
-    
-    <!-- Install Tabs -->
-    <div class="mt-10">
-      <div class="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)]">
-        <!-- Tab Headers -->
-        <div class="flex border-b border-[var(--border)]">
-          <button 
-            id="tab-curl" 
-            class="install-tab active px-6 py-3 text-sm font-medium text-[var(--text-primary)] border-b-2 border-[var(--text-primary)]"
-            data-tab="curl"
-          >
-            curl
-          </button>
-          <button 
-            id="tab-git" 
-            class="install-tab px-6 py-3 text-sm font-medium text-[var(--text-muted)] border-b-2 border-transparent hover:text-[var(--text-primary)]"
-            data-tab="git"
-          >
-            git
-          </button>
-        </div>
-        
-        <!-- Tab Content: curl -->
-        <div id="content-curl" class="install-content p-6">
-          <div class="flex items-center justify-between">
-            <pre class="text-sm text-[var(--text-primary)] overflow-x-auto"><code>{curlCommand}</code></pre>
-            <button 
-              class="copy-button ml-4 flex-shrink-0 rounded p-2 text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text-primary)] transition-all"
-              data-command={curlCommand}
-              title="Copy to clipboard"
+
+    <!-- Install Card -->
+    <div class="mt-12">
+      <div class="relative">
+        <!-- Outer glow -->
+        <div class="absolute -inset-2 bg-gradient-to-b from-[var(--accent)]/20 via-[var(--accent)]/10 to-transparent rounded-2xl blur-xl"></div>
+
+        <div class="relative overflow-hidden rounded-xl border border-[var(--accent)]/30 bg-[var(--surface)]">
+          <!-- Tab Headers -->
+          <div class="flex border-b border-[var(--border)]">
+            <button
+              id="tab-curl"
+              class="install-tab active px-6 py-4 text-sm font-medium text-[var(--accent)] border-b-2 border-[var(--accent)] bg-[var(--background)]/50"
+              data-tab="curl"
             >
-              <Copy class="h-4 w-4" />
+              curl
+            </button>
+            <button
+              id="tab-git"
+              class="install-tab px-6 py-4 text-sm font-medium text-[var(--text-muted)] border-b-2 border-transparent hover:text-[var(--text-primary)] transition-colors"
+              data-tab="git"
+            >
+              git
             </button>
           </div>
-          <p class="mt-4 text-xs text-[var(--text-faded)]">
-            Coming soon — for now use the git method
-          </p>
-        </div>
-        
-        <!-- Tab Content: git -->
-        <div id="content-git" class="install-content hidden p-6">
-          <div class="flex items-start justify-between">
-            <pre class="text-sm text-[var(--text-primary)] overflow-x-auto"><code>{gitCommands}</code></pre>
-            <button 
-              class="copy-button ml-4 flex-shrink-0 rounded p-2 text-[var(--text-muted)] hover:bg-[var(--background)] hover:text-[var(--text-primary)] transition-all"
-              data-command={gitCommands}
-              title="Copy to clipboard"
-            >
-              <Copy class="h-4 w-4" />
-            </button>
+
+          <!-- Tab Content: curl -->
+          <div id="content-curl" class="install-content p-6">
+            <div class="flex items-center justify-between gap-4 rounded-lg bg-[var(--background)] border border-[var(--border)] p-4">
+              <div class="flex items-center gap-3 overflow-x-auto">
+                <span class="text-[var(--accent)] font-bold">$</span>
+                <code class="text-sm text-[var(--text-primary)]">{curlCommand}</code>
+              </div>
+              <button
+                class="copy-button flex-shrink-0 rounded-md p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
+                data-command={curlCommand}
+                title="Copy to clipboard"
+              >
+                <Copy class="h-4 w-4 copy-icon" />
+                <Check class="h-4 w-4 check-icon hidden text-green-500" />
+              </button>
+            </div>
+            <p class="mt-4 text-xs text-[var(--text-faded)]">
+              Coming soon — for now use the git method
+            </p>
+          </div>
+
+          <!-- Tab Content: git -->
+          <div id="content-git" class="install-content hidden p-6">
+            <div class="flex items-start justify-between gap-4 rounded-lg bg-[var(--background)] border border-[var(--border)] p-4">
+              <div class="flex items-start gap-3 overflow-x-auto">
+                <span class="text-[var(--accent)] font-bold mt-0.5">$</span>
+                <pre class="text-sm text-[var(--text-primary)]"><code>{gitCommands}</code></pre>
+              </div>
+              <button
+                class="copy-button flex-shrink-0 rounded-md p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
+                data-command={gitCommands}
+                title="Copy to clipboard"
+              >
+                <Copy class="h-4 w-4 copy-icon" />
+                <Check class="h-4 w-4 check-icon hidden text-green-500" />
+              </button>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- After install hint -->
+      <div class="mt-8 text-center">
+        <p class="text-sm text-[var(--text-muted)]">
+          Then run <code class="text-[var(--accent)] bg-[var(--surface)] px-2 py-1 rounded border border-[var(--border)]">/onboarding</code> to personalize your system
+        </p>
       </div>
     </div>
   </div>
@@ -78,19 +110,19 @@ cd openagent
   // Tab switching
   const tabs = document.querySelectorAll('.install-tab');
   const contents = document.querySelectorAll('.install-content');
-  
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const targetTab = tab.getAttribute('data-tab');
-      
+
       // Update tab styles
       tabs.forEach(t => {
-        t.classList.remove('active', 'text-[var(--text-primary)]', 'border-[var(--text-primary)]');
+        t.classList.remove('active', 'text-[var(--accent)]', 'border-[var(--accent)]', 'bg-[var(--background)]/50');
         t.classList.add('text-[var(--text-muted)]', 'border-transparent');
       });
-      tab.classList.add('active', 'text-[var(--text-primary)]', 'border-[var(--text-primary)]');
+      tab.classList.add('active', 'text-[var(--accent)]', 'border-[var(--accent)]', 'bg-[var(--background)]/50');
       tab.classList.remove('text-[var(--text-muted)]', 'border-transparent');
-      
+
       // Show/hide content
       contents.forEach(content => {
         content.classList.add('hidden');
@@ -98,7 +130,7 @@ cd openagent
       document.getElementById(`content-${targetTab}`)?.classList.remove('hidden');
     });
   });
-  
+
   // Copy buttons
   const copyButtons = document.querySelectorAll('.copy-button');
   copyButtons.forEach(button => {
@@ -106,12 +138,15 @@ cd openagent
       const command = button.getAttribute('data-command');
       if (command) {
         await navigator.clipboard.writeText(command);
-        const icon = button.querySelector('svg');
-        if (icon) {
-          icon.style.color = 'var(--text-primary)';
+        const copyIcon = button.querySelector('.copy-icon');
+        const checkIcon = button.querySelector('.check-icon');
+        if (copyIcon && checkIcon) {
+          copyIcon.classList.add('hidden');
+          checkIcon.classList.remove('hidden');
           setTimeout(() => {
-            icon.style.color = '';
-          }, 1000);
+            copyIcon.classList.remove('hidden');
+            checkIcon.classList.add('hidden');
+          }, 2000);
         }
       }
     });

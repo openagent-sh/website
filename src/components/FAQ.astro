@@ -1,5 +1,5 @@
 ---
-import { Plus } from "@lucide/astro";
+import { Plus, Minus } from "@lucide/astro";
 
 const faqs = [
   {
@@ -29,29 +29,32 @@ const faqs = [
 ];
 ---
 
-<section class="relative py-20 md:py-28 bg-[#0c0c0c]">
-  <!-- Same background as Onboarding section -->
+<section class="relative py-20 md:py-28">
+  <!-- Subtle gradient background -->
   <div class="absolute inset-0 bg-gradient-to-b from-[var(--background)] via-[#0c0c0c] to-[var(--background)]"></div>
-  
+
   <div class="relative mx-auto max-w-3xl px-6">
     <!-- Header -->
-    <h2 class="text-2xl font-semibold text-[var(--text-primary)]">
+    <p class="section-label">
       FAQ
+    </p>
+    <h2 class="mt-4 text-2xl font-semibold text-[var(--text-primary)]">
+      Frequently asked questions
     </h2>
-    
+
     <!-- Questions -->
     <div class="mt-10 space-y-2">
       {faqs.map(({ question, answer }, index) => (
-        <div class="faq-item">
-          <button 
-            class="faq-trigger flex w-full items-center gap-4 py-4 text-left"
+        <div class="faq-item border-b border-[var(--border)]">
+          <button
+            class="faq-trigger flex w-full items-center gap-4 py-4 text-left group"
             aria-expanded="false"
             data-index={index}
           >
-            <span class="faq-icon flex-shrink-0 text-[var(--text-muted)]">
+            <span class="faq-icon flex-shrink-0 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors">
               <Plus class="h-4 w-4" />
             </span>
-            <span class="text-[var(--text-primary)] font-medium">{question}</span>
+            <span class="text-[var(--text-primary)] font-medium group-hover:text-[var(--accent)] transition-colors">{question}</span>
           </button>
           <div class="faq-content hidden pl-8 pb-4">
             <p class="text-sm text-[var(--text-muted)] leading-relaxed">{answer}</p>
@@ -64,22 +67,22 @@ const faqs = [
 
 <script>
   const faqItems = document.querySelectorAll('.faq-item');
-  
+
   faqItems.forEach(item => {
     const trigger = item.querySelector('.faq-trigger');
     const content = item.querySelector('.faq-content');
     const icon = item.querySelector('.faq-icon');
-    
+
     trigger?.addEventListener('click', () => {
       const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-      
+
       // Toggle current item
       trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
       content?.classList.toggle('hidden', isOpen);
-      
+
       // Swap icon - Plus when closed, Minus when open
       if (icon) {
-        icon.innerHTML = isOpen 
+        icon.innerHTML = isOpen
           ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>'
           : '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>';
       }

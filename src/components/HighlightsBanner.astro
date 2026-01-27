@@ -1,43 +1,45 @@
 ---
-// Highlights Banner - darker, solid background, better mobile alignment
+// Highlights Banner - styled as a contained card with dividers
+const highlights = [
+  { text: "Open Source", icon: "◆" },
+  { text: "Built on OpenCode", icon: "◆", link: "https://opencode.ai" },
+  { text: "Fast Onboarding", icon: "◆" },
+  { text: "Modular Config", icon: "◆" }
+];
 ---
 
-<section class="relative py-8 bg-[#0a0a0a]">
-  <!-- Solid overlay to block grid -->
-  <div class="absolute inset-0 bg-[#0a0a0a]"></div>
-  
-  <div class="relative mx-auto max-w-6xl px-6">
-    <!-- Desktop: horizontal, Mobile: 2x2 grid centered -->
-    <div class="hidden sm:flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-[var(--text-muted)]">
-      <span>Open Source</span>
-      <span class="text-[var(--text-faded)]">·</span>
-      <a 
-        href="https://opencode.ai" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="hover:text-[var(--text-primary)] transition-colors"
-      >
-        Built on OpenCode
-      </a>
-      <span class="text-[var(--text-faded)]">·</span>
-      <span>Fast Onboarding</span>
-      <span class="text-[var(--text-faded)]">·</span>
-      <span>Modular Configuration</span>
-    </div>
-    
-    <!-- Mobile: 2x2 grid without dots -->
-    <div class="sm:hidden grid grid-cols-2 gap-4 text-sm text-[var(--text-muted)] text-center">
-      <span>Open Source</span>
-      <a 
-        href="https://opencode.ai" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="hover:text-[var(--text-primary)] transition-colors"
-      >
-        Built on OpenCode
-      </a>
-      <span>Fast Onboarding</span>
-      <span>Modular Config</span>
+<section class="py-16">
+  <div class="mx-auto max-w-4xl px-6">
+    <!-- Card container with border and background -->
+    <div class="relative">
+      <!-- Corner accents -->
+      <div class="absolute -top-px -left-px w-8 h-8 border-t-2 border-l-2 border-[var(--accent)]/50"></div>
+      <div class="absolute -top-px -right-px w-8 h-8 border-t-2 border-r-2 border-[var(--accent)]/50"></div>
+      <div class="absolute -bottom-px -left-px w-8 h-8 border-b-2 border-l-2 border-[var(--accent)]/50"></div>
+      <div class="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-[var(--accent)]/50"></div>
+
+      <div class="border border-[var(--border)] bg-[var(--surface)]/30 backdrop-blur-sm">
+        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[var(--border)]">
+          {highlights.map(({ text, icon, link }, index) => (
+            link ? (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex flex-col items-center justify-center py-6 px-4 hover:bg-[var(--accent)]/5 transition-colors"
+              >
+                <span class="text-[var(--accent)] text-xs mb-2 group-hover:scale-110 transition-transform">{icon}</span>
+                <span class="text-sm text-[var(--accent)] font-medium text-center">{text}</span>
+              </a>
+            ) : (
+              <div class="flex flex-col items-center justify-center py-6 px-4">
+                <span class="text-[var(--text-faded)] text-xs mb-2">{icon}</span>
+                <span class="text-sm text-[var(--text-muted)] text-center">{text}</span>
+              </div>
+            )
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>

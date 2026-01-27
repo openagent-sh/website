@@ -35,24 +35,30 @@ const features = [
 ];
 ---
 
-<section id="features" class="py-20 md:py-28">
+<section id="features" class="relative py-20 md:py-28">
   <div class="mx-auto max-w-6xl px-6">
     <!-- Header -->
     <div class="text-center">
-      <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+      <p class="section-label justify-center">
         Features
       </p>
       <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
         Everything you need
       </h2>
     </div>
-    
+
     <!-- Grid -->
-    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {features.map(({ icon: Icon, title, description }) => (
-        <div class="group rounded-lg border border-[var(--border)] bg-[var(--surface)]/50 p-6 transition-all hover:border-[var(--border-strong)] hover:bg-[var(--surface)]">
-          <div class="mb-4 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-3">
-            <Icon class="h-5 w-5 text-[var(--text-muted)]" />
+    <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {features.map(({ icon: Icon, title, description }, index) => (
+        <div class="group relative rounded-lg border border-[var(--accent)]/20 bg-[var(--surface)]/30 p-6 transition-all duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--surface)]">
+          <!-- Corner brackets - always visible with accent color -->
+          <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-tl"></div>
+          <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-tr"></div>
+          <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-bl"></div>
+          <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-br"></div>
+
+          <div class="mb-4 inline-flex items-center justify-center rounded-md border border-[var(--accent)]/30 bg-[var(--background)] p-3 group-hover:border-[var(--accent)]/50 transition-colors">
+            <Icon class="h-5 w-5 text-[var(--accent)]/70 group-hover:text-[var(--accent)] transition-colors" />
           </div>
           <h3 class="text-lg font-medium text-[var(--text-primary)]">
             {title}

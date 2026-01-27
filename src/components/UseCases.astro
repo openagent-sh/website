@@ -20,24 +20,36 @@ const useCases = [
 ];
 ---
 
-<section class="border-t border-[var(--border)] py-20 md:py-28">
+<section class="relative py-20 md:py-28">
+  <!-- Top border with circuit node -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-[var(--border)]">
+    <div class="absolute left-1/4 -translate-y-1/2 w-2 h-2 rounded-full bg-[var(--text-faded)]"></div>
+    <div class="absolute right-1/4 -translate-y-1/2 w-2 h-2 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent-glow-strong)]"></div>
+  </div>
+
   <div class="mx-auto max-w-6xl px-6">
     <!-- Header -->
     <div class="text-center">
-      <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+      <p class="section-label justify-center">
         Use Cases
       </p>
       <h2 class="mt-4 text-3xl font-semibold text-[var(--text-primary)] md:text-4xl">
         Built for builders
       </h2>
     </div>
-    
+
     <!-- Cards -->
     <div class="mt-16 grid gap-6 md:grid-cols-3">
-      {useCases.map(({ icon: Icon, title, description }) => (
-        <div class="group rounded-lg border border-[var(--border)] bg-[var(--surface)]/50 p-8 text-center transition-all hover:border-[var(--border-strong)] hover:bg-[var(--surface)]">
-          <div class="mx-auto mb-6 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-4">
-            <Icon class="h-6 w-6 text-[var(--text-muted)]" />
+      {useCases.map(({ icon: Icon, title, description }, index) => (
+        <div class="group relative rounded-lg border border-[var(--border)] bg-[var(--surface)]/30 p-8 text-center transition-all duration-300 hover:border-[var(--accent)]/30 hover:bg-[var(--surface)]">
+          <!-- Corner brackets -->
+          <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
+          <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
+          <div class="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
+          <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
+
+          <div class="mx-auto mb-6 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-4 group-hover:border-[var(--accent)]/30 transition-colors">
+            <Icon class="h-6 w-6 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" />
           </div>
           <h3 class="text-xl font-medium text-[var(--text-primary)]">
             {title}

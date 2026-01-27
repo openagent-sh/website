@@ -1,36 +1,42 @@
 ---
-// Problem/Solution Section - focus on personalized AI + agents
+// Problem/Solution Section
 ---
 
-<section class="py-20 md:py-28">
+<section class="relative py-20 md:py-28">
+  <!-- Decorative vertical line -->
+  <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[var(--border)] to-transparent hidden md:block">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[var(--accent)] shadow-[0_0_12px_var(--accent-glow-strong)]"></div>
+    <div class="absolute top-3/4 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[var(--text-faded)]"></div>
+  </div>
+
   <div class="mx-auto max-w-6xl px-6">
     <div class="grid gap-12 md:grid-cols-2 md:gap-16">
       <!-- Problem -->
-      <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+      <div class="relative">
+        <p class="section-label">
           The Problem
         </p>
         <h2 class="mt-4 text-2xl font-semibold text-[var(--text-primary)] md:text-3xl">
           AI isn't really personalized to you
         </h2>
         <p class="mt-4 text-[var(--text-muted)] leading-relaxed">
-          Every AI tool treats you like a stranger. It doesn't know your projects, 
-          your preferences, or how you work. You're constantly re-explaining context, 
+          Every AI tool treats you like a stranger. It doesn't know your projects,
+          your preferences, or how you work. You're constantly re-explaining context,
           spawning generic agents that don't fit your needs.
         </p>
       </div>
-      
+
       <!-- Solution -->
-      <div>
-        <p class="text-xs font-medium uppercase tracking-wider text-[var(--text-faded)]">
+      <div class="relative">
+        <p class="section-label">
           The Solution
         </p>
         <h2 class="mt-4 text-2xl font-semibold text-[var(--text-primary)] md:text-3xl">
-          An AI system built around you
+          An AI system built around <span class="text-[var(--accent)]">you</span>
         </h2>
         <p class="mt-4 text-[var(--text-muted)] leading-relaxed">
           OpenAgent is a configuration layer for OpenCode that makes AI truly personal.
-          Persistent memory, specialized agents tailored to your workflow, 
+          Persistent memory, specialized agents tailored to your workflow,
           and a system that evolves with your needs.
         </p>
       </div>
