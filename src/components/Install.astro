@@ -1,10 +1,11 @@
 ---
-import { Copy, Check, ArrowRight } from "@lucide/astro";
+import { Copy, Check, ArrowRight, Zap } from "@lucide/astro";
 
 const curlCommand = `curl -fsSL https://open-agent.sh/install | bash`;
 const gitCommands = `git clone https://github.com/openagent-sh/openagent
 cd openagent
 ./setup.sh`;
+const skillCommand = `/install:openagent`;
 ---
 
 <section id="install" class="relative py-24 md:py-32">
@@ -34,9 +35,9 @@ cd openagent
     <div class="mt-12">
       <div class="relative">
         <!-- Outer glow -->
-        <div class="absolute -inset-2 bg-gradient-to-b from-[var(--accent)]/20 via-[var(--accent)]/10 to-transparent rounded-2xl blur-xl"></div>
+        <div class="absolute -inset-2 bg-gradient-to-b from-[var(--accent)]/20 via-[var(--accent)]/10 to-transparent blur-xl"></div>
 
-        <div class="relative overflow-hidden rounded-xl border border-[var(--accent)]/30 bg-[var(--surface)]">
+        <div class="relative overflow-hidden border border-[var(--accent)]/30 bg-[var(--surface)]">
           <!-- Tab Headers -->
           <div class="flex border-b border-[var(--border)]">
             <button
@@ -53,17 +54,24 @@ cd openagent
             >
               git
             </button>
+            <button
+              id="tab-skill"
+              class="install-tab px-6 py-4 text-sm font-medium text-[var(--text-muted)] border-b-2 border-transparent hover:text-[var(--text-primary)] transition-colors"
+              data-tab="skill"
+            >
+              skill
+            </button>
           </div>
 
           <!-- Tab Content: curl -->
           <div id="content-curl" class="install-content p-6">
-            <div class="flex items-center justify-between gap-4 rounded-lg bg-[var(--background)] border border-[var(--border)] p-4">
+            <div class="flex items-center justify-between gap-4 bg-[var(--background)] border border-[var(--border)] p-4">
               <div class="flex items-center gap-3 overflow-x-auto">
                 <span class="text-[var(--accent)] font-bold">$</span>
                 <code class="text-sm text-[var(--text-primary)]">{curlCommand}</code>
               </div>
               <button
-                class="copy-button flex-shrink-0 rounded-md p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
+                class="copy-button flex-shrink-0 p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
                 data-command={curlCommand}
                 title="Copy to clipboard"
               >
@@ -78,13 +86,13 @@ cd openagent
 
           <!-- Tab Content: git -->
           <div id="content-git" class="install-content hidden p-6">
-            <div class="flex items-start justify-between gap-4 rounded-lg bg-[var(--background)] border border-[var(--border)] p-4">
+            <div class="flex items-start justify-between gap-4 bg-[var(--background)] border border-[var(--border)] p-4">
               <div class="flex items-start gap-3 overflow-x-auto">
                 <span class="text-[var(--accent)] font-bold mt-0.5">$</span>
                 <pre class="text-sm text-[var(--text-primary)]"><code>{gitCommands}</code></pre>
               </div>
               <button
-                class="copy-button flex-shrink-0 rounded-md p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
+                class="copy-button flex-shrink-0 p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
                 data-command={gitCommands}
                 title="Copy to clipboard"
               >
@@ -93,14 +101,55 @@ cd openagent
               </button>
             </div>
           </div>
+
+          <!-- Tab Content: skill -->
+          <div id="content-skill" class="install-content hidden p-6">
+            <div class="flex items-center justify-between gap-4 bg-[var(--background)] border border-[var(--border)] p-4">
+              <div class="flex items-center gap-3 overflow-x-auto">
+                <Zap class="h-4 w-4 text-[var(--accent)]" />
+                <code class="text-sm text-[var(--text-primary)]">{skillCommand}</code>
+              </div>
+              <button
+                class="copy-button flex-shrink-0 p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
+                data-command={skillCommand}
+                title="Copy to clipboard"
+              >
+                <Copy class="h-4 w-4 copy-icon" />
+                <Check class="h-4 w-4 check-icon hidden text-green-500" />
+              </button>
+            </div>
+            <p class="mt-4 text-xs text-[var(--text-faded)]">
+              Run this command in Claude Code to install the OpenAgent skill
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- After install hint -->
       <div class="mt-8 text-center">
         <p class="text-sm text-[var(--text-muted)]">
-          Then run <code class="text-[var(--accent)] bg-[var(--surface)] px-2 py-1 rounded border border-[var(--border)]">/onboarding</code> to personalize your system
+          Then run <code class="text-[var(--accent)] bg-[var(--surface)] px-2 py-1 border border-[var(--border)]">/onboarding</code> to personalize your system
         </p>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center py-6 border border-[var(--border)] bg-[var(--surface)]/30">
+          <div class="text-3xl font-bold text-[var(--accent)]">∞</div>
+          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">Memory</div>
+        </div>
+        <div class="text-center py-6 border border-[var(--border)] bg-[var(--surface)]/30">
+          <div class="text-3xl font-bold text-[var(--text-primary)]">6+</div>
+          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">Agents</div>
+        </div>
+        <div class="text-center py-6 border border-[var(--border)] bg-[var(--surface)]/30">
+          <div class="text-3xl font-bold text-[var(--text-primary)]">5<span class="text-lg font-mono">min</span></div>
+          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">Setup</div>
+        </div>
+        <div class="text-center py-6 border border-[var(--border)] bg-[var(--surface)]/30">
+          <div class="text-3xl font-bold text-[var(--text-primary)]">100<span class="text-[var(--accent)]">%</span></div>
+          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">Local</div>
+        </div>
       </div>
     </div>
   </div>

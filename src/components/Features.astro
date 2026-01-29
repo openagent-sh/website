@@ -5,32 +5,38 @@ const features = [
   {
     icon: Brain,
     title: "Persistent Memory",
-    description: "Your agent remembers what matters: project context, decisions, preferences. Short-term for this week, long-term for life."
+    description: "Your agent remembers what matters: project context, decisions, preferences. Short-term for this week, long-term for life.",
+    module: "MEM_01"
   },
   {
     icon: GitBranch,
     title: "Agents You Actually Use",
-    description: "Code reviewers, frontend designers, memory agents, changelog writers. Specialized agents for your actual workflow."
+    description: "Code reviewers, frontend designers, memory agents, changelog writers. Specialized agents for your actual workflow.",
+    module: "AGT_02"
   },
   {
     icon: Terminal,
     title: "Built on OpenCode",
-    description: "OpenAgent is a system layer for OpenCode. All the power of the CLI, enhanced with persistent context and personalization."
+    description: "OpenAgent is a system layer for OpenCode. All the power of the CLI, enhanced with persistent context and personalization.",
+    module: "CLI_03"
   },
   {
     icon: FileText,
     title: "Your System, Your Rules",
-    description: "Configure everything: work areas, goals, habits, agent behavior. The system adapts to how you work."
+    description: "Configure everything: work areas, goals, habits, agent behavior. The system adapts to how you work.",
+    module: "SYS_04"
   },
   {
     icon: Puzzle,
     title: "Fully Extensible",
-    description: "Add custom commands, plugins, skills. Extend the system to fit your needs."
+    description: "Add custom commands, plugins, skills. Extend the system to fit your needs.",
+    module: "EXT_05"
   },
   {
     icon: User,
     title: "Deeply Personalized",
-    description: "Smart onboarding learns who you are in minutes. Then keeps learning: your style, your priorities, your workflow."
+    description: "Smart onboarding learns who you are in minutes. Then keeps learning: your style, your priorities, your workflow.",
+    module: "USR_06"
   }
 ];
 ---
@@ -49,15 +55,20 @@ const features = [
 
     <!-- Grid -->
     <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {features.map(({ icon: Icon, title, description }, index) => (
-        <div class="group relative rounded-lg border border-[var(--accent)]/20 bg-[var(--surface)]/30 p-6 transition-all duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--surface)]">
-          <!-- Corner brackets - always visible with accent color -->
-          <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-tl"></div>
-          <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-tr"></div>
-          <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-bl"></div>
-          <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors rounded-br"></div>
+      {features.map(({ icon: Icon, title, description, module }, index) => (
+        <div class="group relative border border-[var(--accent)]/20 bg-[var(--surface)]/30 p-6 transition-all duration-300 hover:border-[var(--accent)]/50 hover:bg-[var(--surface)]">
+          <!-- Module label -->
+          <div class="absolute -top-3 right-4 px-2 py-0.5 bg-[var(--background)] border border-[var(--border)] text-[10px] font-mono text-[var(--text-faded)] tracking-wider">
+            {module}
+          </div>
 
-          <div class="mb-4 inline-flex items-center justify-center rounded-md border border-[var(--accent)]/30 bg-[var(--background)] p-3 group-hover:border-[var(--accent)]/50 transition-colors">
+          <!-- Corner brackets - always visible with accent color -->
+          <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors"></div>
+          <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors"></div>
+          <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors"></div>
+          <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)]/40 group-hover:border-[var(--accent)] transition-colors"></div>
+
+          <div class="mb-4 inline-flex items-center justify-center border border-[var(--accent)]/30 bg-[var(--background)] p-3 group-hover:border-[var(--accent)]/50 transition-colors">
             <Icon class="h-5 w-5 text-[var(--accent)]/70 group-hover:text-[var(--accent)] transition-colors" />
           </div>
           <h3 class="text-lg font-medium text-[var(--text-primary)]">

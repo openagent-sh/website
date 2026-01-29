@@ -41,14 +41,14 @@ const useCases = [
     <!-- Cards -->
     <div class="mt-16 grid gap-6 md:grid-cols-3">
       {useCases.map(({ icon: Icon, title, description }, index) => (
-        <div class="group relative rounded-lg border border-[var(--border)] bg-[var(--surface)]/30 p-8 text-center transition-all duration-300 hover:border-[var(--accent)]/30 hover:bg-[var(--surface)]">
+        <div class="group relative border border-[var(--border)] bg-[var(--surface)]/30 p-8 text-center transition-all duration-300 hover:border-[var(--accent)]/30 hover:bg-[var(--surface)]">
           <!-- Corner brackets -->
           <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
           <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
           <div class="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
           <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-[var(--border)] group-hover:border-[var(--accent)]/50 transition-colors"></div>
 
-          <div class="mx-auto mb-6 inline-flex items-center justify-center rounded-md border border-[var(--border)] bg-[var(--background)] p-4 group-hover:border-[var(--accent)]/30 transition-colors">
+          <div class="mx-auto mb-6 inline-flex items-center justify-center border border-[var(--border)] bg-[var(--background)] p-4 group-hover:border-[var(--accent)]/30 transition-colors">
             <Icon class="h-6 w-6 text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors" />
           </div>
           <h3 class="text-xl font-medium text-[var(--text-primary)]">

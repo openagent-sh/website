@@ -1,11 +1,14 @@
 ---
 // Highlights Banner - styled as a contained card with dividers
-const highlights = [
+// Desktop: 5 columns in a row
+// Mobile: 2x2 grid + centered bottom row
+const topRowHighlights = [
   { text: "Open Source", icon: "◆" },
-  { text: "Built on OpenCode", icon: "◆", link: "https://opencode.ai" },
   { text: "Fast Onboarding", icon: "◆" },
-  { text: "Modular Config", icon: "◆" }
+  { text: "Modular Config", icon: "◆" },
+  { text: "Built on OpenCode", icon: "◆", link: "https://opencode.ai" }
 ];
+const centerHighlight = { text: "Personalized on You", icon: "◆", accent: true };
 ---
 
 <section class="py-16">
@@ -19,25 +22,67 @@ const highlights = [
       <div class="absolute -bottom-px -right-px w-8 h-8 border-b-2 border-r-2 border-[var(--accent)]/50"></div>
 
       <div class="border border-[var(--border)] bg-[var(--surface)]/30 backdrop-blur-sm">
-        <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[var(--border)]">
-          {highlights.map(({ text, icon, link }, index) => (
-            link ? (
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex flex-col items-center justify-center py-6 px-4 hover:bg-[var(--accent)]/5 transition-colors"
-              >
-                <span class="text-[var(--accent)] text-xs mb-2 group-hover:scale-110 transition-transform">{icon}</span>
-                <span class="text-sm text-[var(--accent)] font-medium text-center">{text}</span>
-              </a>
-            ) : (
-              <div class="flex flex-col items-center justify-center py-6 px-4">
-                <span class="text-[var(--text-faded)] text-xs mb-2">{icon}</span>
-                <span class="text-sm text-[var(--text-muted)] text-center">{text}</span>
-              </div>
-            )
-          ))}
+        <!-- Desktop: 5 columns -->
+        <div class="hidden md:grid md:grid-cols-5 divide-x divide-[var(--border)]">
+          <div class="flex flex-col items-center justify-center py-6 px-4">
+            <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+            <span class="text-sm text-[var(--text-muted)] text-center">Open Source</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-6 px-4">
+            <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+            <span class="text-sm text-[var(--text-muted)] text-center">Fast Onboarding</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-6 px-4 bg-[var(--accent)]/5">
+            <span class="text-[var(--accent)] text-xs mb-2">◆</span>
+            <span class="text-sm text-[var(--accent)] font-medium text-center">Personalized on You</span>
+          </div>
+          <div class="flex flex-col items-center justify-center py-6 px-4">
+            <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+            <span class="text-sm text-[var(--text-muted)] text-center">Modular Config</span>
+          </div>
+          <a
+            href="https://opencode.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center justify-center py-6 px-4 hover:bg-[var(--surface)] transition-colors"
+          >
+            <span class="text-[var(--text-faded)] text-xs mb-2 group-hover:text-[var(--accent)] transition-colors">◆</span>
+            <span class="text-sm text-[var(--text-muted)] group-hover:text-[var(--text-primary)] text-center transition-colors">Built on OpenCode</span>
+          </a>
+        </div>
+
+        <!-- Mobile: 2x2 grid + centered bottom -->
+        <div class="md:hidden">
+          <div class="grid grid-cols-2 divide-x divide-y divide-[var(--border)]">
+            <div class="flex flex-col items-center justify-center py-6 px-4">
+              <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+              <span class="text-sm text-[var(--text-muted)] text-center">Open Source</span>
+            </div>
+            <div class="flex flex-col items-center justify-center py-6 px-4">
+              <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+              <span class="text-sm text-[var(--text-muted)] text-center">Fast Onboarding</span>
+            </div>
+            <div class="flex flex-col items-center justify-center py-6 px-4">
+              <span class="text-[var(--text-faded)] text-xs mb-2">◆</span>
+              <span class="text-sm text-[var(--text-muted)] text-center">Modular Config</span>
+            </div>
+            <a
+              href="https://opencode.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex flex-col items-center justify-center py-6 px-4 hover:bg-[var(--surface)] transition-colors"
+            >
+              <span class="text-[var(--text-faded)] text-xs mb-2 group-hover:text-[var(--accent)] transition-colors">◆</span>
+              <span class="text-sm text-[var(--text-muted)] group-hover:text-[var(--text-primary)] text-center transition-colors">Built on OpenCode</span>
+            </a>
+          </div>
+          <!-- Full width bottom item -->
+          <div class="border-t border-[var(--border)]">
+            <div class="flex flex-col items-center justify-center py-6 px-4 bg-[var(--accent)]/5 w-full">
+              <span class="text-[var(--accent)] text-xs mb-2">◆</span>
+              <span class="text-sm text-[var(--accent)] font-medium text-center">Personalized on You</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
