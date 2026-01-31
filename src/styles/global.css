@@ -73,6 +73,47 @@ body {
   background-size: 64px 64px;
 }
 
+/* Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Screenshot Vibe: Dashed Lines & Nodes */
+.dashed-line {
+  background-image: linear-gradient(to right, var(--border-strong) 50%, transparent 50%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+  width: 100%;
+}
+
+.node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--text-muted);
+}
+
+.node-dot.accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow-strong);
+}
+
+.node-dot.hollow {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+}
+
+
 /* Selection */
 ::selection {
   background-color: rgba(255, 255, 255, 0.2);

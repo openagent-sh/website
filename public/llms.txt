@@ -1,0 +1,32 @@
+# OpenAgent - Personal AI Operating System
+
+> Your cofounder for life. A system that remembers, adapts, and grows with you.
+
+## Summary
+OpenAgent is a configuration layer for OpenCode (and potentially other CLI agents) that adds persistent memory, specialized agent personas, and deep personalization to your AI workflow. Unlike standard chat interfaces that reset context, OpenAgent maintains a "Soul" (core identity) and "Memory" (long-term knowledge) that persists across sessions.
+
+## Core Value Proposition
+- **Persistent Context**: Remembers project details, preferences, and decisions.
+- **Identity Awareness**: Knows who you are (developer, product owner, etc.) and adapts.
+- **Local-First**: All data (memory, tasks, configs) lives in markdown files on your machine.
+- **Extensible**: Spawn specialized sub-agents (e.g., /researcher, /coder) with specific tools.
+
+## Installation
+Currently in development. Launching Feb 1st, 2026.
+
+```bash
+# Install via curl (Coming soon)
+curl -fsSL https://open-agent.sh/install | bash
+```
+
+## Architecture
+- **OpenCode**: The underlying CLI agent engine.
+- **SOUL.md**: The immutable core identity and constitution.
+- **AGENT.md**: User context (who you are, goals, active projects).
+- **MEMORY.md**: Long-term knowledge graph (preferences, patterns).
+- **Inbox**: Task capture system.
+
+## Links
+- Website: https://open-agent.sh
+- GitHub: https://github.com/openagent-sh/openagent
+- Twitter: https://x.com/openagent_

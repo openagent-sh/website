@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ArrowLeft } from "@lucide/astro";
+---
+
+<Layout title="404 - Page Not Found">
+  <main class="flex min-h-screen flex-col items-center justify-center p-6 text-center">
+    <div class="relative w-full max-w-lg">
+      <!-- Glow effect -->
+      <div class="absolute -inset-1 bg-gradient-to-b from-[var(--accent-glow)] to-transparent opacity-30 blur-xl"></div>
+      
+      <div class="relative overflow-hidden border border-[var(--border)] bg-[var(--surface)] font-mono text-left shadow-2xl">
+        <!-- Terminal Header -->
+        <div class="flex items-center gap-2 border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3">
+          <div class="flex gap-2">
+            <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+            <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+            <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+          </div>
+          <span class="ml-2 text-xs text-[var(--text-faded)]">error.log</span>
+        </div>
+
+        <!-- Terminal Content -->
+        <div class="p-6 text-sm">
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <span class="text-[var(--text-faded)]">001</span>
+              <span class="text-red-400">Error: 404_PAGE_NOT_FOUND</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-[var(--text-faded)]">002</span>
+              <span>The requested URL was not found on this server.</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-[var(--text-faded)]">003</span>
+              <span class="text-[var(--text-muted)]">// Perhaps the agent got lost?</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-[var(--text-faded)]">004</span>
+              <span class="text-[var(--text-muted)]">// Try navigating back to safety.</span>
+            </div>
+            
+            <div class="mt-8 border-t border-[var(--border)] pt-4">
+              <div class="flex items-center gap-2">
+                <span class="text-[var(--accent)]">$</span>
+                <span class="animate-pulse">cd /home</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a 
+              href="/" 
+              class="inline-flex items-center gap-2 rounded border border-[var(--accent)] bg-[var(--accent)]/10 px-4 py-2 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white transition-all"
+            >
+              <ArrowLeft class="h-4 w-4" />
+              Return Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout> 
