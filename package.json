@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "cp ~/openagent-sh/install.sh public/install",
+    "prebuild": "cp install.sh public/install",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
