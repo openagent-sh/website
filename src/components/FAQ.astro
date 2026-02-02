@@ -7,16 +7,16 @@ const faqs = [
     answer: "OpenAgent is a personal AI operating system built on OpenCode. It's a configuration layer that adds persistent memory, specialized agents, and deep personalization to your AI workflow."
   },
   {
-    question: "How is this different from ChatGPT?",
-    answer: "ChatGPT forgets you after each conversation. OpenAgent remembers your projects, preferences, and context over time. It's local-first, open source, and designed to grow with you."
+    question: "How is this different from OpenClaw/Clawdbot?",
+    answer: "OpenAgent ships lean by default. we dont support 20.000 apps that you won't use and the focus is on building a modular but personalized agent system for you"
   },
   {
     question: "Do I need OpenCode?",
     answer: "Yes. OpenAgent is built on top of OpenCode. Install OpenCode first, then add OpenAgent as your personalization layer."
   },
   {
-    question: "Where is my data stored?",
-    answer: "Everything stays local on your machine. Your memory, tasks, and configuration are just markdown files in your project. Nothing leaves your computer."
+    question: "What if i use Claude Code, Droid etc?",
+    answer: "Ofcourse we want to support all CLI's, but we had to ship something first. You can probably just ask an AI agent to move it over to your CLI/TUI config. Feel free to open a PR for official support though!"
   },
   {
     question: "Is it free?",
@@ -25,6 +25,16 @@ const faqs = [
   {
     question: "How do I contribute?",
     answer: "Check out our GitHub repository and the contributing guide. We welcome all contributions: code, docs, ideas."
+  },
+  {
+    question: "What other features are planned?",
+    answer: `<ul class="list-disc pl-5 space-y-2">
+      <li>A custom webapp with an Agent orchestrator/kanban view, a clean dashboard and an markdown editor for your notes & documents</li>
+      <li>More subagents, automations, commands and scripts that are actually useful</li>
+      <li>A smarter memory layer</li>
+      <li>Browser automation capabilities</li>
+      <li>macOS notifications & reminders integration</li>
+    </ul>`
   }
 ];
 ---
@@ -57,7 +67,7 @@ const faqs = [
             <span class="text-[var(--text-primary)] font-medium group-hover:text-[var(--accent)] transition-colors">{question}</span>
           </button>
           <div class="faq-content hidden pl-8 pb-4">
-            <p class="text-sm text-[var(--text-muted)] leading-relaxed">{answer}</p>
+            <div class="text-sm text-[var(--text-muted)] leading-relaxed" set:html={answer}></div>
           </div>
         </div>
       ))}

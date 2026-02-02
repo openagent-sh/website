@@ -1,7 +1,7 @@
 ---
 import { Copy, Check, ArrowRight, Zap } from "@lucide/astro";
 
-const curlCommand = `curl -fsSL https://open-agent.sh/install | bash`;
+const curlCommand = `cd && curl -fsSL https://open-agent.sh/install | bash`;
 const gitCommands = `git clone https://github.com/openagent-sh/openagent
 cd openagent
 ./setup.sh`;
@@ -104,23 +104,9 @@ const skillCommand = `/install:openagent`;
 
           <!-- Tab Content: skill -->
           <div id="content-skill" class="install-content hidden p-6">
-            <div class="flex items-center justify-between gap-4 bg-[var(--background)] border border-[var(--border)] p-4">
-              <div class="flex items-center gap-3 overflow-x-auto">
-                <Zap class="h-4 w-4 text-[var(--accent)]" />
-                <code class="text-sm text-[var(--text-primary)]">{skillCommand}</code>
-              </div>
-              <button
-                class="copy-button flex-shrink-0 p-2 text-[var(--text-muted)] hover:bg-[var(--surface)] hover:text-[var(--accent)] transition-all border border-transparent hover:border-[var(--border)]"
-                data-command={skillCommand}
-                title="Copy to clipboard"
-              >
-                <Copy class="h-4 w-4 copy-icon" />
-                <Check class="h-4 w-4 check-icon hidden text-green-500" />
-              </button>
+            <div class="flex items-center justify-center gap-4 bg-[var(--background)] border border-[var(--border)] p-8">
+              <p class="text-sm text-[var(--text-muted)]">Coming soon</p>
             </div>
-            <p class="mt-4 text-xs text-[var(--text-faded)]">
-              Run this command in Claude Code to install the OpenAgent skill
-            </p>
           </div>
         </div>
       </div>
@@ -148,7 +134,7 @@ const skillCommand = `/install:openagent`;
         </div>
         <div class="text-center py-6 border border-[var(--border)] bg-[var(--surface)]/30">
           <div class="text-3xl font-bold text-[var(--text-primary)]">100<span class="text-[var(--accent)]">%</span></div>
-          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">Local</div>
+          <div class="mt-1 text-xs font-mono text-[var(--text-faded)] uppercase tracking-wider">OPENSOURCE</div>
         </div>
       </div>
     </div>
